@@ -1,0 +1,24 @@
+{
+    "homepage": "https://eventstore.org/",
+    "license": "BSD-3-Clause",
+    "version": "4.1.3",
+    "url": "https://eventstore.org/downloads/EventStore-OSS-Win-v4.1.3.zip",
+    "hash": "bf47cd29d3cd2491311b5c1a5bf92fe6802f6dc0449dbec5fc37473e07075366",
+    "bin": [
+        [
+            "EventStore.ClusterNode.exe",
+            "eventstore"
+        ],
+        "EventStore.ClusterNode.exe",
+        "EventStore.PAdmin.exe",
+        "EventStore.Query.exe",
+        "EventStore.TestClient.exe"
+    ],
+    "checkver": {
+        "url": "https://eventstore.org/downloads",
+        "re": "/downloads/EventStore-OSS-Win-v([\\d.]+(-[\\w\\d]+)?).zip"
+    },
+    "autoupdate": {
+        "url": "https://eventstore.org/downloads/EventStore-OSS-Win-v$version.zip"
+    }
+}

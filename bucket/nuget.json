@@ -1,0 +1,15 @@
+{
+    "homepage": "https://www.nuget.org/",
+    "version": "5.0.2",
+    "license": "Apache-2.0",
+    "url": "https://dist.nuget.org/win-x86-commandline/v5.0.2/NuGet.exe",
+    "hash": "3e41e6e736441198c3e7ffced751d1f0e9755bedcaabf07baed413f08f635b9b",
+    "bin": "NuGet.exe",
+    "checkver": {
+        "url": "https://dist.nuget.org/index.json",
+        "jp": "$..versions[?(@.displayName == 'nuget.exe - recommended latest')].version"
+    },
+    "autoupdate": {
+        "url": "https://dist.nuget.org/win-x86-commandline/v$version/NuGet.exe"
+    }
+}

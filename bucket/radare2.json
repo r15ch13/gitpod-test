@@ -1,0 +1,39 @@
+{
+    "version": "3.5.1",
+    "license": "GPL-2.0",
+    "homepage": "https://www.radare.org/r/",
+    "architecture": {
+        "64bit": {
+            "url": "https://radare.mikelloc.com/get/3.5.1/radare2-msvc_64-3.5.1.zip",
+            "hash": "sha1:95ab04202a57ed6424a7fe471d2868fbe1e0208b",
+            "extract_dir": "radare2-vs2017_64-3.5.1"
+        }
+    },
+    "bin": [
+        "r2agent.exe",
+        "rabin2.exe",
+        "radare2.exe",
+        "radiff2.exe",
+        "rafind2.exe",
+        "ragg2.exe",
+        "rahash2.exe",
+        "rarun2.exe",
+        "rasm2.exe",
+        "rax2.exe"
+    ],
+    "checkver": {
+        "url": "https://www.radare.org/r/down.html",
+        "re": "last release is ([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://radare.mikelloc.com/get/$version/radare2-msvc_64-$version.zip",
+                "extract_dir": "radare2-vs2017_64-$version"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.sha1sum"
+        }
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "homepage": "https://virustotal.github.io/yara/",
+    "description": "The pattern matching swiss knife for malware researchers (and everyone else)",
+    "license": "BSD-3-Clause",
+    "version": "3.10.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/VirusTotal/yara/releases/download/v3.10.0/yara-v3.10.0-904-win64.zip",
+            "hash": "F26F58A0F6BFA31B2D715DC2956B2E72E9C5413AE93F03151B33E189E57CE07A",
+            "bin": [
+                [
+                    "yara64.exe",
+                    "yara"
+                ],
+                [
+                    "yarac64.exe",
+                    "yarac"
+                ]
+            ]
+        },
+        "32bit": {
+            "url": "https://github.com/VirusTotal/yara/releases/download/v3.10.0/yara-v3.10.0-904-win32.zip",
+            "hash": "56F3A5C124A72234B4500E20BBDB89DB0E434AA5D131BA02AFECEB13726218B8",
+            "bin": [
+                [
+                    "yara32.exe",
+                    "yara"
+                ],
+                [
+                    "yarac32.exe",
+                    "yarac"
+                ]
+            ]
+        }
+    },
+    "checkver": {
+        "github": "https://github.com/VirusTotal/yara"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/VirusTotal/yara/releases/download/v$version/yara-v$version-win64.zip"
+            },
+            "32bit": {
+                "url": "https://github.com/VirusTotal/yara/releases/download/v$version/yara-v$version-win32.zip"
+            }
+        }
+    }
+}

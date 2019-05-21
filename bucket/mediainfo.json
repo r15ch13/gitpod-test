@@ -1,0 +1,27 @@
+{
+    "version": "19.04",
+    "homepage": "https://mediaarea.net/en/MediaInfo",
+    "license": "BSD-2-Clause",
+    "architecture": {
+        "64bit": {
+            "url": "https://mediaarea.net/download/binary/mediainfo/19.04/MediaInfo_CLI_19.04_Windows_x64.zip",
+            "hash": "fb90fbf747d0f46034064b8dbf2ff99788cabf7af71fc45eab2bd7d690f5aec2"
+        },
+        "32bit": {
+            "url": "https://mediaarea.net/download/binary/mediainfo/19.04/MediaInfo_CLI_19.04_Windows_i386.zip",
+            "hash": "ecf821d1fd931a4e5e28a5e71e3afb1720ba7db80db594aaf5efab5ace8a8326"
+        }
+    },
+    "bin": "mediainfo.exe",
+    "checkver": "version ([\\d.]+)",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://mediaarea.net/download/binary/mediainfo/$version/MediaInfo_CLI_$version_Windows_x64.zip"
+            },
+            "32bit": {
+                "url": "https://mediaarea.net/download/binary/mediainfo/$version/MediaInfo_CLI_$version_Windows_i386.zip"
+            }
+        }
+    }
+}

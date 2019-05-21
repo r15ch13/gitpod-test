@@ -1,0 +1,36 @@
+{
+    "homepage": "https://www.postgresql.org/",
+    "version": "11.3",
+    "license": "PostgreSQL",
+    "architecture": {
+        "64bit": {
+            "url": "https://get.enterprisedb.com/postgresql/postgresql-11.3-1-windows-x64-binaries.zip",
+            "hash": "c4a475cbef1d9d95a88f6480c3db7a0892d1c4aa30818640bc3285c04fd5bdb4"
+        }
+    },
+    "extract_dir": "pgsql",
+    "env_add_path": "bin",
+    "shortcuts": [
+        [
+            "pgAdmin 4\\bin\\pgAdmin4.exe",
+            "pgAdmin 4"
+        ]
+    ],
+    "persist": "data",
+    "env_set": {
+        "PGDATA": "$dir\\data"
+    },
+    "post_install": "if (!(Test-Path \"$dir\\data\\pg_hba.conf\")) { iex \"initdb --username=postgres --encoding=UTF8 --locale=en --lc-collate=C\" }",
+    "notes": "To start/stop service, run `pg_ctl start`, `pg_ctl stop`.",
+    "checkver": {
+        "url": "https://www.enterprisedb.com/products-services-training/pgbindownload",
+        "re": "<b>Version ([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://get.enterprisedb.com/postgresql/postgresql-$version-1-windows-x64-binaries.zip"
+            }
+        }
+    }
+}

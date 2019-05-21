@@ -1,0 +1,35 @@
+{
+    "homepage": "https://bazel.build",
+    "description": "A fast, scalable, multi-language and extensible build system",
+    "version": "0.25.2",
+    "license": "Apache-2.0",
+    "bin": "bazel.exe",
+    "suggest": {
+        "MSYS2": "msys2",
+        "Python27": "versions/python27",
+        "curl": "curl"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/bazelbuild/bazel/releases/download/0.25.2/bazel-0.25.2-windows-x86_64.zip",
+            "hash": "9d484e84d65ad32229e23165b7d143e9cbcfd0b52061b557c94731c3bc4ae27b"
+        }
+    },
+    "checkver": {
+        "github": "https://github.com/bazelbuild/bazel"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/bazelbuild/bazel/releases/download/$version/bazel-$version-windows-x86_64.zip"
+            }
+        },
+        "hash": {
+            "mode": "extract",
+            "url": "$url.sha256"
+        }
+    },
+    "env_set": {
+        "BAZEL_SH": "$(appdir msys2 $global)\\current\\usr\\bin\\bash.exe"
+    }
+}

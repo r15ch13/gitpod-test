@@ -1,0 +1,49 @@
+{
+    "version": "1.12.5",
+    "homepage": "https://golang.org",
+    "license": "BSD-3-Clause",
+    "extract_dir": "go",
+    "env_set": {
+        "GOROOT": "$dir"
+    },
+    "bin": [
+        "bin/go.exe",
+        "bin/gofmt.exe",
+        "bin/godoc.exe"
+    ],
+    "installer": {
+        "script": "add_first_in_path \"$env:USERPROFILE\\go\\bin\" $global"
+    },
+    "uninstaller": {
+        "script": "remove_from_path \"$env:USERPROFILE\\go\\bin\" $global"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://storage.googleapis.com/golang/go1.12.5.windows-amd64.zip",
+            "hash": "ccb694279aab39fe0e70629261f13b0307ee40d2d5e1138ed94738023ab04baa"
+        },
+        "32bit": {
+            "url": "https://storage.googleapis.com/golang/go1.12.5.windows-386.zip",
+            "hash": "9b8cfd668c182d39f2039bbb290cd062de438c7cc48ab3f4d9a326fce3538a03"
+        }
+    },
+    "checkver": "Build version go([\\d\\.]+)\\.",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://storage.googleapis.com/golang/go$version.windows-amd64.zip"
+            },
+            "32bit": {
+                "url": "https://storage.googleapis.com/golang/go$version.windows-386.zip"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    },
+    "notes": [
+        "Your GOROOT has been set to: $dir",
+        "You can run 'go env GOROOT' to view this at any time.",
+        "\"$env:USERPROFILE\\go\\bin)\" has been added to your PATH."
+    ]
+}

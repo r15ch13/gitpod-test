@@ -1,0 +1,53 @@
+{
+    "homepage": "https://nim-lang.org/",
+    "version": "0.19.6",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://nim-lang.org/download/nim-0.19.6_x64.zip",
+            "hash": "99c690e50c2c0afaa5df035eb570e7441de685c747d5f32ba8befb679b9d2d2b"
+        },
+        "32bit": {
+            "url": "https://nim-lang.org/download/nim-0.19.6_x32.zip",
+            "hash": "109ab127ce55642228aa6399ccde6ebf29c89c7d4b70249e9b521b2534a18f1c"
+        }
+    },
+    "depends": "gcc",
+    "extract_dir": "nim-0.19.6",
+    "post_install": [
+        "# Copy Nimble package",
+        "Copy-Item -Recurse \"$dir\\dist\\nimble\\src\\nimblepkg\" \"$dir\\bin\""
+    ],
+    "bin": [
+        "bin\\nim.exe",
+        "bin\\nimble.exe",
+        "bin\\nimgrab.exe",
+        "bin\\nimgrep.exe",
+        "bin\\nimsuggest.exe",
+        "bin\\vccexe.exe"
+    ],
+    "checkver": {
+        "url": "https://nim-lang.org/install_windows.html",
+        "re": "nim-([\\d.]+)_x64"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://nim-lang.org/download/nim-$version_x64.zip"
+            },
+            "32bit": {
+                "url": "https://nim-lang.org/download/nim-$version_x32.zip"
+            }
+        },
+        "extract_dir": "nim-$version",
+        "hash": {
+            "url": "$url.sha256"
+        }
+    },
+    "installer": {
+        "script": "add_first_in_path \"$env:USERPROFILE\\.nimble\\bin\" $global"
+    },
+    "uninstaller": {
+        "script": "remove_from_path \"$env:USERPROFILE\\.nimble\\bin\" $global"
+    }
+}

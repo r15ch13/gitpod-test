@@ -1,0 +1,47 @@
+{
+    "version": "7.3",
+    "homepage": "https://racket-lang.org",
+    "license": "LGPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.cs.utah.edu/plt/installers/7.3/racket-7.3-x86_64-win32.exe#/dl.7z",
+            "hash": "sha1:bf88276b4f708b00ba60b2524386ca09227048d0"
+        },
+        "32bit": {
+            "url": "https://www.cs.utah.edu/plt/installers/7.3/racket-7.3-i386-win32.exe#/dl.7z",
+            "hash": "sha1:321c230899ed5fbfb7987c50bf07aacf528dd951"
+        }
+    },
+    "bin": [
+        "racket.exe",
+        "raco.exe"
+    ],
+    "shortcuts": [
+        [
+            "GRacket.exe",
+            "GRacket"
+        ],
+        [
+            "DrRacket.exe",
+            "DrRacket"
+        ]
+    ],
+    "checkver": {
+        "url": "https://download.racket-lang.org/",
+        "re": "Version ([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.cs.utah.edu/plt/installers/$version/racket-$version-x86_64-win32.exe#/dl.7z"
+            },
+            "32bit": {
+                "url": "https://www.cs.utah.edu/plt/installers/$version/racket-$version-i386-win32.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "https://download.racket-lang.org/releases/$version/",
+            "regex": "$basename[\\s\\S]*?\"checksum\">$sha1</span>"
+        }
+    }
+}
